@@ -3,8 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz</title>
+
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
+
+    <main>
+
+        <h1>Dominik's Quiz System</h1>
+
+        <form>
+
+            <div class="question" data-question="1">
+
+                <h2>Question 1</h2>
+
+                <p>What are you favorite animals?</p>
+
+                <input type="checkbox" name="favanimal" value="dog">
+                <label>Dog</label><br>
+
+                <input type="checkbox" name="favanimal" value="turtle">
+                <label>Turtle</label><br>
+
+                <input type="checkbox" name="favanimal" value="cat">
+                <label>Cat</label><br>
+
+                <input type="checkbox" name="favanimal" value="horse">
+                <label>Horse</label><br>
+
+            </div>
+
+            <div class="question" data-question="2">
+
+                <h2>Question 2</h2>
+
+                <p>Pick a number between 5 and 10</p>
+
+                <input type="number" name="num" min="5" max="10">
+
+                <p>Favorite Color</p>
+
+                <input type="color" name="favcol">
+
+                <p>What's your favorite TV Show</p>
+
+                <select name="tv-show">
+                    <option>The Big Bang Theory</option>
+                    <option>Modern Family</option>
+                    <option>Mr. Robot</option>
+                </select>
+
+            </div>
+
+            <div class="question" data-question="3">
+
+                <h2>Question 3</h2>
+
+                <p>Choose a picture</p>
+
+                <figure>
+                    <img src="assets/cat1.png">
+                    <figcaption>Picture 1</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="assets/cat2.png">
+                    <figcaption>Picture 2</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="assets/cat3.png">
+                    <figcaption>Picture 3</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="assets/cat4.png">
+                    <figcaption>Picture 4</figcaption>
+                </figure>
+
+                <input type="checkbox" name="pic" value="1">
+                <label>1</label><br>
+
+                <input type="checkbox" name="pic" value="2">
+                <label>2</label><br>
+
+                <input type="checkbox" name="pic" value="2">
+                <label>3</label><br>
+
+                <input type="checkbox" name="pic" value="3">
+                <label>4</label><br>
+
+            </div>
+
+            <div class="question" data-question="4">
+
+                <h2>Question 4</h2>
+
+                <p>Examine the following table:</p>
+
+                <table> 
+
+                    <tr> 
+                        <th>City Name</th>
+                        <th>City Area</th> 
+                        <th>City Population</th>
+                    </tr> 
+
+                    <tr> 
+                        <td>Aberdeen</td> 
+                        <td>184km<sup>2</sup></td> 
+                        <td>196,670</td> 
+                    </tr> 
+
+                    <tr>
+                        <td>Dundee</td>
+                        <td>70km<sup>2</sup></td>
+                        <td>148,210</td>
+                    </tr> 
+
+                    <tr> 
+                        <td>Kirriemuir</td> 
+                        <td>Tiny</td> 
+                        <td>5,910</td> 
+                    </tr> 
+
+                </table>
+
+                <p>What is the biggest city?  <input type="text" id="city"></p>
+                <p>What is the smallest city?  <input type="text" id="citysmall"></p>
+
+                <p>Find the website for Dundee    <input type="url" name="homepage1"></p>
+                <p>Find the website for Kirriemuir    <input type="url" name="homepage2"></p>
+
+            </div>
+
+            <div id="finish" class="hide">
+                Thank you for completing the quiz!
+            </div>
+
+            <div id="controller-btns">
+                <button id="next-question-btn">Next</button>
+                <button id="submit" value="submit" name="submit">Submit</button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+    <script>
+
+        var currentQuestion = 1
+
+        $(document).ready(function() {
+
+            $("#next-question-btn").click(function() {
+
+                if (currentQuestion == 4) {
+                    $(".question, #next-question-btn, #submit").hide();
+                    $("#finish").show();
+                    return
+                }
+
+                $(".question[data-question='" + currentQuestion + "']").hide();
+                currentQuestion++;
+                $(".question[data-question='" + currentQuestion + "']").show();
+
+            })
+
+            $("#submit").click(function(e) {
+                e.preventDefault();
+                $(".question, #next-question-btn, #submit").hide();
+                $("#finish").show();
+            });
+
+            $("#next-question-btn").click(function(e) {
+                e.preventDefault();
+            });
+
+        })
+
+
+
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,28 @@
+main {
+    margin: auto;
+    width: 500px;
+    max-width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0px 55px 0px;
+}
+
+.question, .hide {
+    display: none;
+}
+
+.question:first-child {
+    display: block;
+}
+
+#controller-btns {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px 0px 0px;
+}
+
+#controller-btns button {
+    align-self: center;
+}
